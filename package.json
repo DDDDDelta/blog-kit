@@ -1,0 +1,44 @@
+{
+  "name": "@dddelta/blog-kit",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsup src --dts --format esm,cjs --watch",
+    "build": "tsup src --dts --format esm,cjs --clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "peerDependencies": {
+    "next": ">=15",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "sideEffects": "false",
+  "exports": {
+    "./core": {
+      "import": "./dist/core/index.mjs",
+      "require": "./dist/core/index.js",
+      "types": "./dist/core/index.d.ts"
+    },
+    "./ui": { 
+      "import": "./dist/ui/index.mjs", 
+      "require": "./dist/ui/index.js", 
+      "types": "./dist/ui/index.d.ts" 
+    },
+    "./themes/*": "./dist/themes/*"
+  }
+}
