@@ -34,11 +34,14 @@
       "require": "./dist/core/index.js",
       "types": "./dist/core/index.d.ts"
     },
-    "./ui": { 
-      "import": "./dist/ui/index.mjs", 
-      "require": "./dist/ui/index.js", 
-      "types": "./dist/ui/index.d.ts" 
+    "./ui": {
+      "import": "./dist/ui/index.mjs",
+      "require": "./dist/ui/index.js",
+      "types": "./dist/ui/index.d.ts"
     },
     "./themes/*": "./dist/themes/*"
+  },
+  "dependencies": {
+    "marked": "^16.0.0"
   }
 }
