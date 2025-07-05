@@ -1,3 +1,5 @@
+import { createMockFetcher } from './MockFetcher';
+
 export interface Post {
   slug: string;
   title: string;
@@ -174,11 +176,14 @@ export class APIBlogFetcher implements BlogFetcher {
 
 // Factory function to create blog fetchers
 export function createBlogFetcher(
-  type: 'api', 
-  config?: { baseUrl?: string; apiKey?: string }
+  type: 'api' | 'mock', 
+  config?: { baseUrl?: string; apiKey?: string; customBlogs?: BlogContent[] }
 ): BlogFetcher {
   if (type === 'api') {
     return new APIBlogFetcher(config?.baseUrl, config?.apiKey);
+  }
+  if (type === 'mock') {
+    return createMockFetcher(config?.customBlogs);
   }
   throw new Error(`Unsupported fetcher type: ${type}`);
 }
